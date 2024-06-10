@@ -4,7 +4,8 @@
         "install":"/bin/sh ./.devcontainer/postCreateCommand.sh"
     },
     "postAttachCommand":{
-        "server": "ollama serve",
-        "tinyllama": "ollama run tinyllama"
+        "ollama_serve":"ollama serve",
+        "ollama_run":"sleep 5 && ollama run tinyllama",
+        "node-red_run":"npm start"
     }
 }

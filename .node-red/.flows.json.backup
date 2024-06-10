@@ -1,0 +1,134 @@
+[
+    {
+        "id": "24d9244179700e3f",
+        "type": "tab",
+        "label": "フロー 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "382363ce0e140289",
+        "type": "inject",
+        "z": "24d9244179700e3f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "f7754a7699aa387c"
+            ]
+        ]
+    },
+    {
+        "id": "33681a3391c87cf7",
+        "type": "http request",
+        "z": "24d9244179700e3f",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 650,
+        "y": 160,
+        "wires": [
+            [
+                "34b1bffcb2335663"
+            ]
+        ]
+    },
+    {
+        "id": "f7754a7699aa387c",
+        "type": "change",
+        "z": "24d9244179700e3f",
+        "name": "API 設定",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "http://localhost:11434/api/generate",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.model",
+                "pt": "msg",
+                "to": "llama3",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.prompt",
+                "pt": "msg",
+                "to": "ウォンバットってかわいいですよねえ。日本語でお願いします！",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.stream",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "33681a3391c87cf7"
+            ]
+        ]
+    },
+    {
+        "id": "34b1bffcb2335663",
+        "type": "debug",
+        "z": "24d9244179700e3f",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 160,
+        "wires": []
+    }
+]

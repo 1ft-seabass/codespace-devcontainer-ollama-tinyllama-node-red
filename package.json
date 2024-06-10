@@ -1,0 +1,15 @@
+{
+  "name": "codespace-devcontainer-ollama-tinyllama-node-red",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node-red -u ./.node-red"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-red": "^3.1.9"
+  }
+}
